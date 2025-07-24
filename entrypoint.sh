@@ -11,10 +11,10 @@ fi
 echo "🔗 Running storage:link..."
 php artisan storage:link
 
-# کش کردن تنظیمات
+# پاک‌کردن cache های لاراول
+php artisan config:clear
+php artisan cache:clear
 php artisan config:cache
-php artisan route:cache
-php artisan view:cache
 
 # اجرای Laravel
 echo "🚀 Starting Laravel server..."
