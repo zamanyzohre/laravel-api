@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/php-extensions', function () {
-    return response()->json(get_loaded_extensions());
+Route::get('/check-pdo', function () {
+    return extension_loaded('pdo_mysql') ? 'pdo_mysql ✅' : 'pdo_mysql ❌';
 });
+
