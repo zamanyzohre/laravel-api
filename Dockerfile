@@ -1,5 +1,5 @@
 # استفاده از PHP 8.2 با CLI
-FROM php:8.2-cli
+FROM php:8.2-apache
 
 # نصب ابزارهای لازم
 RUN apt-get update && apt-get install -y \
@@ -7,11 +7,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     libzip-dev \
+    libpng-dev \
+    mariadb-client \
     libonig-dev \
     libxml2-dev \
     libpq-dev \
     zip \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip
+    && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl bcmath
 
 # نصب Composer از نسخه رسمی
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
