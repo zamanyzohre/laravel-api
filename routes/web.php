@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/php-extensions', function () {
+    return response()->json(get_loaded_extensions());
+});
